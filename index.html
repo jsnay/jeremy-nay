@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeremy Nay | Engineering Leader</title>
+<meta name="description" content="Jeremy Nay — Director, Engineering. Enterprise Data, AI & Platform.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%231a2b4a%22/><text x=%2250%22 y=%2268%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22bold%22>J</text></svg>">
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f8;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .card {
+    max-width: 850px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba(26, 43, 74, 0.08), 0 1px 3px rgba(26, 43, 74, 0.06);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .accent-bar {
+    height: 7px;
+    background-color: #1a2b4a;
+    width: 100%;
+  }
+
+  .content {
+    padding: 50px 60px;
+  }
+
+  header.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .header-left {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .header-right {
+    text-align: right;
+    flex: 0 0 auto;
+    padding-top: 8px;
+  }
+
+  h1.name {
+    font-size: 42px;
+    font-weight: 800;
+    color: #1a2b4a;
+    margin: 0 0 6px 0;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: #555;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .location {
+    font-size: 15px;
+    color: #555;
+    margin: 0 0 4px 0;
+  }
+
+  .download-link {
+    font-size: 15px;
+    color: #1a2b4a;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .download-link:hover {
+    text-decoration: underline;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 32px 0 0 0;
+  }
+
+  h2.section-header {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a2b4a;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin: 36px 0 18px 0;
+  }
+
+  .summary p {
+    margin: 0 0 14px 0;
+    font-size: 15px;
+    color: #333;
+  }
+
+  .summary p:last-child {
+    margin-bottom: 0;
+  }
+
+  .job {
+    margin-bottom: 28px;
+  }
+
+  .job:last-child {
+    margin-bottom: 0;
+  }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .job-company {
+    font-weight: 700;
+    color: #1a2b4a;
+    font-size: 16px;
+  }
+
+  .job-meta {
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+  }
+
+  .job-title {
+    font-size: 15px;
+    color: #444;
+    font-style: normal;
+    margin: 2px 0 10px 0;
+  }
+
+  .job ul {
+    margin: 8px 0 0 0;
+    padding-left: 22px;
+  }
+
+  .job ul li {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 6px;
+  }
+
+  .job ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  .job-separator {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 24px 0;
+  }
+
+  .education-entry .school {
+    font-weight: 700;
+    color: #1a2b4a;
+    font-size: 16px;
+  }
+
+  .education-entry .school-meta {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .education-entry .degree {
+    font-size: 15px;
+    color: #444;
+    margin-top: 2px;
+  }
+
+  .education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .competencies {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.9;
+  }
+
+  .competencies .sep {
+    color: #aab;
+    margin: 0 6px;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    body {
+      padding: 20px 10px;
+    }
+
+    .content {
+      padding: 32px 24px;
+    }
+
+    h1.name {
+      font-size: 32px;
+    }
+
+    header.resume-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .header-right {
+      text-align: left;
+      padding-top: 4px;
+    }
+
+    .job-header,
+    .education-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .job-meta {
+      text-align: left;
+    }
+
+    h2.section-header {
+      font-size: 18px;
+    }
+  }
+
+  /* Print */
+  @media print {
+    body {
+      background: #ffffff;
+      padding: 0;
+      font-size: 11pt;
+    }
+
+    .card {
+      max-width: 100%;
+      box-shadow: none;
+      border-radius: 0;
+      margin: 0;
+    }
+
+    .content {
+      padding: 24px 32px;
+    }
+
+    .download-link {
+      display: none;
+    }
+
+    .accent-bar {
+      background-color: #1a2b4a !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="accent-bar"></div>
+    <div class="content">
+      <header class="resume-header">
+        <div class="header-left">
+          <h1 class="name">JEREMY NAY</h1>
+          <p class="subtitle">Director, Engineering | Enterprise Data, AI &amp; Platform</p>
+        </div>
+        <div class="header-right">
+          <p class="location">Seattle, WA</p>
+          <a class="download-link" href="./Jeremy Nay - Resume_.pdf" download>Download PDF</a>
+        </div>
+      </header>
+
+      <hr class="divider">
+
+      <section>
+        <h2 class="section-header">Professional Summary</h2>
+        <div class="summary">
+          <p>Engineering leader who builds and scales enterprise data platforms, security and risk systems, and the engineering organizations that own them. Accountable for platforms where correctness, availability, and operational discipline are non-negotiable, operating across platform strategy and delivery execution to translate ambiguous mandates into clear ownership, durable operating models, and teams that consistently deliver under pressure.</p>
+          <p>Known for arriving in environments with fragmented ownership, technical debt, and unclear accountability, and leaving them with governed platforms, high-trust teams, and systems that hold up under scale, incidents, and organizational change. Most effective where decisions are one-way, the cost of mistakes is real, and accountability for outcomes is expected.</p>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <section>
+        <h2 class="section-header">Experience</h2>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-company">Expedia Group</div>
+            <div class="job-meta">Mar 2022 – Apr 2026 | Seattle, WA</div>
+          </div>
+          <div class="job-title">Director, Data Engineering</div>
+          <ul>
+            <li>Grew organization 260% to 39 engineers across EMEA, APAC, and AMER; led 4 teams representing $11.4M in annual investment across Analytics, Platform Engineering, Data Science/ML and Security.</li>
+            <li>Built leadership bench across managers of managers and senior ICs; strengthened ownership, accelerated architectural decision-making, and drove operational maturity across all four teams.</li>
+            <li>Owned decision-critical platforms feeding C-suite dashboards, real-time decisioning, and SOX/GRC compliance reporting; failures escalated to VP, SVP, and CISO level.</li>
+            <li>Directed development of AI-powered analytics onboarding system (RAG, LLM SQL generation with automated schema validation); collapsed effort from days to hours, freeing $2M+ in capacity.</li>
+            <li>Drove closure of a company-wide SOX compliance blind spot; enabled GRC to classify, track, and enforce remediation across violations that previously lacked ownership or timelines.</li>
+            <li>Owned AWS Redshift analytics platform; consolidated multiple teams off legacy SQL Server, then led migration to corporate data platform after validating production readiness requirements.</li>
+            <li>Defined secure-by-default engineering standards embedding access control, data quality, observability, and auditability into engineering workflows across all teams.</li>
+          </ul>
+        </div>
+
+        <hr class="job-separator">
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-company">Expedia Group</div>
+            <div class="job-meta">Jun 2020 – Mar 2022 | Seattle, WA</div>
+          </div>
+          <div class="job-title">Senior Manager, Data Engineering &amp; Analytics</div>
+          <ul>
+            <li>Consolidated fragmented analytics ownership across product, platform engineering, IT, risk/GRC, and security into the enterprise source of truth, eliminating duplicate and conflicting metrics.</li>
+            <li>Standardized company-wide metrics platform; provided trusted data for analytics data playground; built analyst self-service tooling to abstract data engineering internals from consumers.</li>
+            <li>Retained Security Data Warehouse ownership through organizational consolidation, serving Security Engineering, GRC, Operations, and Physical Security with CISO-level reporting.</li>
+          </ul>
+        </div>
+
+        <hr class="job-separator">
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-company">Expedia Group</div>
+            <div class="job-meta">Jul 2019 – Jun 2020 | Seattle, WA</div>
+          </div>
+          <div class="job-title">Senior Manager, Software Development – Security</div>
+          <ul>
+            <li>Led 22-person global software/security engineering org across IAM, IoC detection, and deployment automation; owned full roadmap and tradeoffs including a CISO-level build vs. buy decision.</li>
+            <li>Built Security Data Warehouse aggregating data from third-party security tools into a unified platform for analytics; became the primary reporting source for the CISO and Senior Security Directors.</li>
+            <li>Scaled Exabeam SIEM 4x; delivered global one-badge functionality via Lenel/Pro-Watch sync; built company-wide User Access Review tool as a SOX control; reduced IAM operations overhead 40%.</li>
+          </ul>
+        </div>
+
+        <hr class="job-separator">
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-company">Expedia Group</div>
+            <div class="job-meta">Dec 2015 – Jul 2019 | Seattle, WA</div>
+          </div>
+          <div class="job-title">Manager, Software Development – Fraud &amp; Risk</div>
+          <ul>
+            <li>Re-architected monolithic credit card fraud detection web services into a resilient microservices platform; reduced losses 10% YoY and expanded to supplier fraud and account takeover workloads without relaxing SLA constraints.</li>
+            <li>Led fraud platform onboarding of HomeAway, VRBO, and Travelocity post-acquisition; superior capabilities drove M&amp;A value and centralized adoption across brands.</li>
+          </ul>
+        </div>
+
+        <hr class="job-separator">
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-company">SDL International</div>
+            <div class="job-meta">Aug 2012 – Dec 2015 | Seattle, WA</div>
+          </div>
+          <div class="job-title">Software Engineering Manager</div>
+          <ul>
+            <li>Owned full-stack data platform end-to-end in a private data center: storage, ingestion, enrichment, indexing, and query serving, plus the application &amp; analytics layers used directly by the business.</li>
+            <li>Resolved HBase write hotspot at petabyte scale; redesigned timestamp-prefixed keys to hash-salted keys, executed live corpus migration via chunked Oozie workflows on live infrastructure.</li>
+            <li>Improved release cadence from quarterly to multi-weekly; reduced deployment overhead 45%; expanded production capacity 400%.</li>
+          </ul>
+        </div>
+
+        <hr class="job-separator">
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-company">Microsoft Corporation</div>
+            <div class="job-meta">May 2005 – Jun 2012 | Redmond, WA</div>
+          </div>
+          <div class="job-title">Software Development Engineer</div>
+          <ul>
+            <li>Designed and implemented the Microsoft Policy Processor, a core policy execution component for endpoint management shipped in Windows Server, Microsoft Configuration Manager, and Microsoft Intune; protected by U.S. Patents 8,112,379 and 8,954,370.</li>
+            <li>Prototyped standards-based WMI and WinRM services for Policy Platform integration, eliminating the need for custom communication protocols and saving approximately 24 person-months of implementation effort.</li>
+          </ul>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <section>
+        <h2 class="section-header">Education</h2>
+        <div class="education-entry">
+          <div class="education-header">
+            <div class="school">University of Southern California</div>
+            <div class="school-meta">Los Angeles, CA</div>
+          </div>
+          <div class="degree">Bachelor of Science, Computer Engineering &amp; Computer Science</div>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <section>
+        <h2 class="section-header">Core Competencies</h2>
+        <div class="competencies">
+          Enterprise Data Platforms <span class="sep">|</span> Analytics &amp; BI Systems <span class="sep">|</span> AI/ML Engineering &amp; RAG Pipelines <span class="sep">|</span> Security &amp; Risk Engineering <span class="sep">|</span> SOX/GRC Compliance <span class="sep">|</span> Real-Time Decisioning <span class="sep">|</span> Fraud Detection <span class="sep">|</span> Identity &amp; Access Management <span class="sep">|</span> Distributed Systems Architecture <span class="sep">|</span> Platform Governance <span class="sep">|</span> Incident Response <span class="sep">|</span> Global Engineering Leadership <span class="sep">|</span> Operating Model Design <span class="sep">|</span> Secure-by-Design Systems
+        </div>
+      </section>
+    </div>
+    <div class="accent-bar"></div>
+  </div>
+</body>
+</html>

@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml | jeremynay.com
+
+  PURPOSE: enumerate the indexable URLs for search engines, currently the
+    home page and the downloadable resume PDF.
+  UPSTREAM DEPENDENCIES: none; static and hand-maintained. lastmod is
+    updated manually when the corresponding file changes (see issue #10
+    for automating this).
+  DOWNSTREAM CONSUMERS: crawlers discover this file through robots.txt and
+    through direct submission in Google Search Console and Bing Webmaster
+    Tools.
+  SPECIAL CONSIDERATIONS: URLs must be absolute and percent-encoded; the
+    PDF path contains spaces, hence the %20 sequences. Keep the domain in
+    sync with robots.txt and the canonical URL in index.html.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jeremynay.com/</loc>

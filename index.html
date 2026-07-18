@@ -1,4 +1,58 @@
 <!doctype html>
+<!--
+  index.html | jeremynay.com
+
+  PURPOSE
+    Single-page interactive resume for Jeremy Nay. The entire site lives in
+    this one file: markup, embedded CSS, and a small vanilla JS controller.
+    Each experience bullet expands in place into a short first-person story.
+
+  UPSTREAM DEPENDENCIES
+    - "Jeremy Nay - Resume.pdf" (repo root): target of the Download PDF
+      header link. Regenerated outside this repo from the master resume
+      source; the bullet text here must stay in sync with it.
+    - og-image.png (repo root): 1200x630 social preview referenced by the
+      og:image and twitter:image meta tags. Rebuilt with
+      scripts/generate-og-image.py.
+    - Nothing else. No external fonts, stylesheets, scripts, or trackers;
+      the favicon is an inline SVG data URI. Keep it that way.
+
+  DOWNSTREAM CONSUMERS
+    - Browsers: desktop, mobile (breakpoint at 768px), and print.
+    - Search crawlers: JSON-LD Person schema, canonical URL, and robots
+      meta in <head>; robots.txt and sitemap.xml route crawlers here.
+    - Social scrapers (LinkedIn, Facebook, X) via the Open Graph and
+      Twitter Card meta tags.
+    - Netlify: serves this file as the site root on main and builds a
+      deploy preview per pull request.
+
+  HOW THE INTERACTIVITY WORKS
+    1. An inline script at the top of <head> adds the "js" class to <html>.
+       Every collapse and animation rule is gated on "html.js", so without
+       JavaScript all stories render expanded and nothing is hidden.
+    2. Each bullet is a <button class="story-toggle"> carrying
+       aria-expanded, followed by a .story-panel. Expand and collapse
+       animate through the CSS grid-template-rows 0fr/1fr transition on
+       .story-panel, so no element heights are measured or hardcoded.
+    3. The controller script at the end of <body> assigns each .story-item
+       a staggered delay (custom property --d, 80ms per index) and the
+       "reveal" class. That drives two one-time CSS animations, a bounce-in
+       entrance (bullet-in) and a highlight sweep (shimmer-sweep), which
+       signal that the bullets are clickable.
+    4. Clicking a toggle flips the "open" class on its .story-item and
+       mirrors the new state into aria-expanded.
+
+  SPECIAL CONSIDERATIONS
+    - prefers-reduced-motion disables the entrance animation, the shimmer,
+      and the panel transition.
+    - @media print hides the panels, hint, chevrons, and download link so
+      the page prints as a plain resume.
+    - Prose rules for all visible text: no em dashes anywhere (en dashes
+      are fine in dates and titles) and plain professional prose. See the
+      README before editing copy.
+    - Content sync order when bullets change: master resume source first,
+      then this file (bullet plus story), then regenerate the PDF.
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
